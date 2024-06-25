@@ -5,7 +5,7 @@ body {
 
 header {
     position: sticky;
-    top:0;
+    top: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -33,7 +33,8 @@ header {
     align-items: center;
     order: 2; /* Ensure it appears second in flex order */
 }
-.navbar:hover{
+
+.navbar:hover {
     color: #004346; /* Change color on hover */
 }
 
@@ -58,7 +59,7 @@ header {
     font-weight: normal;
     display: flex;
     align-items: center;
-    padding: 10px 15px; /* Added padding for better touch area */
+    padding: 10px 0px; /* Added padding for better touch area */
     transition: color 0.3s ease;
 }
 
@@ -67,20 +68,24 @@ header {
     background-color: #ddd;
     font-weight: bold;
 }
+
 .arroww {
     border: solid rgba(0, 0, 0, 0.793);
     border-width: 0 3px 3px 0;
     display: inline-block;
     padding: 3px;
     margin-left: 10px;
-  }
+}
+
 .down {
     transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
-  }
+}
+
 .arrow {
     padding-left: 10px;
 }
+
 .navbar .dropdown {
     display: none;
     position: absolute;
@@ -108,6 +113,7 @@ header {
     display: block;
     width: 100%;
 }
+
 .navbar .dropdown a:hover {
     background-color: #ddd;
     color: #004346; /* Change color on hover */
@@ -146,22 +152,41 @@ header {
     margin-left: 8px;
 }
 
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
 .menu-overlay {
     display: none;
     position: fixed;
     top: 0;
-    left: 0;
+    right: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.8);
     z-index: 2000;
-    justify-content: center;
+    justify-content: flex-end; /* Align to the right */
     align-items: center;
     transition: all 0.3s ease;
 }
 
 .menu-overlay.active {
     display: flex;
+    animation: fadeIn 0.3s ease;
 }
 
 .mobile-navbar {
@@ -169,6 +194,12 @@ header {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    transform: translateX(100%);
+    animation: slideInRight 0.3s ease forwards;
+}
+
+.menu-overlay.active .mobile-navbar {
+    transform: translateX(0); /* Slide in from the right */
 }
 
 .mobile-navbar ul {
@@ -218,19 +249,18 @@ header {
     background-color: #ddd;
     font-weight: bold;
 }
-.logo2{
+
+.logo2 {
     display: none;
 }
+
 @media (max-width: 768px) {
-    
     header {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
         padding: 10px 20px;
     }
-
-    
 
     .navbar {
         display: none;
@@ -243,19 +273,6 @@ header {
     }
 
     .donate-button {
-        display: none;
-    }
-}
-@media (max-width: 465px){
-    .logo2 img {
-        width: 55px;
-
-    }
-    .logo2{
-        display: block;
-        margin-bottom: 0;
-    }
-    .logo {
         display: none;
     }
 }
