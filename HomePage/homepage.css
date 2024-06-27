@@ -343,3 +343,39 @@ content: '';
         margin-top: 20px; /* Space above container */
     }
 }
+.donateh-button {
+    position: fixed;
+    z-index: 1000;
+    background-color: rgba(0, 67, 70, 0.8);
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 10px 10px;
+    text-align: center;
+    white-space: nowrap; /* Ensure the text does not wrap */
+}
+
+.donateh-button a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+    display: inline-block; /* Ensure the link respects the rotation */
+}
+
+.donateh-button a:hover {
+    text-decoration: underline;
+}
+/* Adjustments for mobile view */
+@media (max-width: 766px) {
+    .donateh-button {
+        top: 40%;
+        bottom: auto;
+        right: 0;
+        transform: rotate(270deg) translateY(-70%);
+        transform-origin: top right;
+    }
+}
+@media (min-width:768px) {
+    .donateh-button{
+        display: none;
+    }
+}
