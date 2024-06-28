@@ -12,7 +12,7 @@ body {
 .hero {
     /* Gradient background */
     /* background: linear-gradient(to bottom, #0072c6, #70c6ff); */
-    background-image: url("./images/Hero_Background.jpg");
+    background-image: url("./images/hero_home.jpg");
     background-repeat: no-repeat;
     background-size:cover;
     color: white; /* Text color */
@@ -343,6 +343,7 @@ content: '';
         margin-top: 20px; /* Space above container */
     }
 }
+
 .donateh-button {
     position: fixed;
     z-index: 1000;
