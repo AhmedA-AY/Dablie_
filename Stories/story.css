@@ -34,3 +34,67 @@ body {
     color: #504f4f;
     margin-top: 10px;
 }
+/*-- Mohammed Edits*/
+.updates {
+    background-color: #fff; /* Background color */
+    padding: 40px 20px; /* Padding for content */
+    margin-bottom:2rem ;
+}
+
+/* Styles for headings within the updates section */
+.updates h3 {
+    color: #333; /* Text color */
+    font-weight: 400;
+
+}
+.updates h1 {
+    color: #333; /* Text color */
+    font-size: 35px;
+    font-weight: 500;
+    margin-bottom: 4rem;
+}
+/* Styles for the container of update cards */
+.updates_grid {
+    display: flex; /* Use flexbox */
+    justify-content: center; /* Center items horizontally */
+    gap: 3rem; 
+    /* justify-content: space-evenly; */
+    margin-top: 20px; /* Space above container */
+}
+
+/* Styles for individual update cards */
+.update_card {
+    background: #E4EBEF; /* Background color */
+    /* border-radius: 12px; Border radius */
+    /* padding: 15px; Padding */
+    width: 320px; /* Card width */
+    height: 380px;
+    text-align: left; /* Text alignment */
+}
+
+/* Styles for images within update cards */
+.update_card img {
+    width: 100%; /* Image width */
+    /* border-radius: 10px; Border radius */
+    height: 210px;
+}
+
+/* Styles for paragraphs within update cards */
+.update_card h4 {
+    font-size: 0.95em; /* Font size */
+    font-weight: bolder;
+    margin: 10px 10px auto 10px; /* Margin */
+}
+
+.update_card h5{
+    font-size: 0.75rem; /* Font size */
+    margin: 25px 10px;
+    font-weight: 500;
+}
+/* Styles for links within update cards */
+.update_card a {
+    color: #508991; /* Link color */
+    text-decoration: none; /* Remove underline */
+    padding-left: 0.75rem;
+}
+
