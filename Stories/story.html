@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Story</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="stories.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Story</h1>
+        <div class="divider"></div>
+        <section id="story_container"></section>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const storyId = urlParams.get('id');
+
+            if (storyId) {
+                fetchStory(storyId);
+            } else {
+                document.getElementById('story_container').textContent = 'Story not found.';
+            }
+
+            function fetchStory(id) {
+                const url = `http://64.112.124.78:8000/news/${id}`;
+                console.log(`Fetching story from: ${url}`);
+                fetch(url, {
+                    method: 'PUT',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok ' + response.statusText);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Received data:', data);
+                    // if (data.status !== 'success' || !data.article) {
+                    //     console.error('Invalid data structure:', data);
+                    //     throw new Error('Invalid data structure');
+                    // }
+                    displayStory(data);
+                })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                    document.getElementById('story_container').textContent = 'Error fetching story.';
+                });
+            }
+
+            function displayStory(article) {
+                const storyContainer = document.getElementById('story_container');
+                storyContainer.innerHTML = '';
+
+                const storyBox = document.createElement('div');
+                storyBox.classList.add('story_box');
+
+                const img = document.createElement('img');
+                img.src = `http://64.112.124.78/data/images/${article.image}`;
+                img.alt = article.headline;
+
+                const headline = document.createElement('h2');
+                headline.textContent = article.headline;
+
+                const content = document.createElement('p');
+                content.textContent = article.description;
+
+                storyBox.appendChild(img);
+                storyBox.appendChild(headline);
+                storyBox.appendChild(content);
+
+                storyContainer.appendChild(storyBox);
+            }
+        });
+    </script>
+</body>
+</html>
